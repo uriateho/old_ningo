@@ -3,11 +3,14 @@
  ?>
  
  <?php 
-    $dbhost='localhost' ; $dbuser='root' ; $dbpass='' ; $dbname='hms' ; 
+    $dbhost='localhost';
+    $dbuser='root';
+    $dbpass='';
+    $dbname='hms'; 
     $conn=mysqli_connect($dbhost, $dbuser, $dbpass, $dbname); 
     if(! $conn ) {
         die( 'Could not connect: ' . mysqli_error());
-        }
+      }
         
     if (count($_POST)>1){
     mysqli_select_db($conn, 'dbname'); 
@@ -32,7 +35,13 @@
     
 if(!mysqli_fetch_array($result)){
 mysqli_query($conn, "INSERT INTO patients VALUES('$patient_id','$nof','$sname','$oname','$dob','$age','$gender','$mstat','$reli','$occupation','$mobile','$insurance','$noh','$address','$nonr','$conr','$datetime')");
-    $message = "<p style=color:green>Patient Added Successfully!!</p>"; } else $message = "<p style=color:red;text-decoration:blink>Patient ID or Insurance No. already exist!!!</p>"; } mysqli_close($conn); ?>
+    $message = "<p style=color:green>Patient Added Successfully!!</p>";
+ }
+else $message = "<p style=color:red;text-decoration:blink>Patient ID or Insurance No. already exist!!!</p>"; 
+ } 
+ 
+mysqli_close($conn);
+?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -52,7 +61,7 @@ mysqli_query($conn, "INSERT INTO patients VALUES('$patient_id','$nof','$sname','
 
     </head>
 
-<body bgcolor="lightblue">
+<body style="background-color:lightblue">
 
         <div align="right">
             <p>[ <a href="home.php" style="text-decoration:none"><b>HOME</b></a> ]</p>

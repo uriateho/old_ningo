@@ -1,3 +1,3 @@
 # old_ningo
 
-Hello world
+Hello world, still in the learning process
